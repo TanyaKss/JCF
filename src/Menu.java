@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Menu {
     Scanner in = new Scanner(System.in);
-    private int comm ;
+    private int comm;
 
     /**
      * Приветствие.
@@ -13,10 +13,11 @@ public class Menu {
         System.out.println("Для записи к врачу введите 2");
         System.out.println("Для завершения программы введите 3");
     }
+
     /**
      * Главное меню.
      */
-    public void menuHospital() {
+    public void menuHospital() throws NumMenu {
         sayHello();
         Patients one = new Patients("Пупкина Анна Витальевна", "Ж", 33, 12324);
         Patients two = new Patients("Пузырькин Алексей Витальевич", "М", 66, 34528);
@@ -60,7 +61,7 @@ public class Menu {
 
                 Comparator<Patients> ncom = new NewAgeComparator();
 
-                TreeSet <Patients> queue = new TreeSet<> (ncom);
+                TreeSet<Patients> queue = new TreeSet<>(ncom);
                 queue.add(one);
                 queue.add(two);
                 queue.add(three);
@@ -71,13 +72,14 @@ public class Menu {
                 queue.add(eight);
                 queue.add(nine);
                 queue.add(ten);
-                int i=0;
-                for (Patients p: queue) {
-                    System.out.println("Порядковый номер: " + i + "; "+ "ID: " + p.getID() + ", "+ "Данные пациента: " + p.getPatient());
+                int i = 1;
+                for (Patients p : queue) {
+                    System.out.println("Порядковый номер: " + i + "; " + "ID: " + p.getID() + ", " + "Данные пациента: " + p.getPatient());
                     i++;
                 }
+            }if (comm !=1 && comm != 2 && comm !=3 ) {
+                throw new NumMenu("Нет такого пункта в меню!");
             }
         }
     }
 }
-

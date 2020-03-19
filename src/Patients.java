@@ -21,7 +21,7 @@ public class Patients {
         return Integer.toString(numberInsPolicy);
     }
     public String getPatient (){
-        return  Integer.toString(age) + ", "+  fio + ", "+ gender ;
+        return Integer.toString(age) + ", "+ fio + ", "+ gender ;
     }
     public String getGen () {
         return gender;
